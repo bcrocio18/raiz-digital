@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raíz Digital | Arte Ancestral, Tecnología Futura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🌱</div>
+                <span class="logo-text">RaízDigital</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#mercado" class="nav-link">Mercado</a>
+                <a href="#artesano" class="nav-link">Artesanos</a>
+                <a href="#tecnologia" class="nav-link">Tecnología</a>
+                <button class="btn-wallet" id="connectWallet">
+                    <i class="fas fa-wallet"></i>
+                    Conectar Wallet
+                </button>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨ Plataforma Web3</span>
+                </div>
+                <h1 class="hero-title">
+                    Donde la <span class="text-gradient">tradición</span> 
+                    encuentra el <span class="text-gradient">futuro</span>
+                </h1>
+                <p class="hero-description">
+                    La primera plataforma de comercio justo que utiliza blockchain 
+                    para conectar artesanos indígenas directamente con el mundo. 
+                    Cada pieza autenticada con NFT.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Para el artesano</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Autenticidad</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Intermediarios</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('mercado')">
+                        <i class="fas fa-store"></i>
+                        Explorar Mercado
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('tecnologia')">
+                        <i class="fas fa-info-circle"></i>
+                        Cómo Funciona
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="art-card">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=500&fit=crop" alt="Artesanía indígena" class="art-image">
+                    <div class="art-details">
+                        <div class="art-title">Textil Maya Ancestral</div>
+                        <div class="art-artisan">Por María, Comunidad Maya</div>
+                        <div class="art-price">85 USDC</div>
+                        <div class="nft-badge">
+                            <i class="fas fa-certificate"></i>
+                            NFT de Autenticidad
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-element element-1">🎨</div>
+                    <div class="floating-element element-2">🤖</div>
+                    <div class="floating-element element-3">🌍</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web3 Simulation Section -->
+    <section id="web3-demo" class="web3-demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiencia Web3 en Acción</h2>
+                <p class="section-subtitle">Conecta tu wallet real y simula una compra con tecnología blockchain</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-sidebar">
+                    <div class="demo-steps">
+                        <div class="demo-step active" data-step="1">
+                            <div class="step-indicator">1</div>
+                            <div class="step-info">
+                                <h4>Conectar Billetera</h4>
+                                <p>Vincula tu wallet Web3 real</p>
+                            </div>
+                        </div>
+                        <div class="demo-step" data-step="2">
+                            <div class="step-indicator">2</div>
+                            <div class="step-info">
+                                <h4>Seleccionar Producto</h4>
+                                <p>Elige tu artesanía favorita</p>
+                            </div>
+                        </div>
+                        <div class="demo-step" data-step="3">
+                            <div class="step-indicator">3</div>
+                            <div class="step-info">
+                                <h4>Confirmar Transacción</h4>
+                                <p>Firma la compra en blockchain</p>
+                            </div>
+                        </div>
+                        <div class="demo-step" data-step="4">
+                            <div class="step-indicator">4</div>
+                            <div class="step-info">
+                                <h4>Recibir NFT</h4>
+                                <p>Obtén tu certificado digital</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-preview">
+                        <h4>Tu Billetera</h4>
+                        <div id="realWalletInfo" class="wallet-info" style="display: none;">
+                            <div class="network-indicator">
+                                <span class="network-dot"></span>
+                                Polygon
+                            </div>
+                            <div id="walletAddress" class="wallet-address"></div>
+                        </div>
+                        <div class="wallet-balance">
+                            <div class="crypto-balance">
+                                <span>USDC</span>
+                                <span id="usdcBalance">---</span>
+                            </div>
+                            <div class="crypto-balance">
+                                <span>MATIC</span>
+                                <span id="maticBalance">---</span>
+                            </div>
+                        </div>
+                        <div class="nft-collection">
+                            <h5>Tus NFTs</h5>
+                            <div id="nftCollection" class="nft-items">
+                                <div class="empty-nft">Aún no tienes NFTs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-content">
+                    <div id="step1" class="demo-step-content active">
+                        <h3>Conecta tu Billetera Web3 Real</h3>
+                        <p>Para comenzar, conecta tu billetera digital preferida. Usaremos la red Polygon para transacciones rápidas y económicas.</p>
+                        
+                        <div class="wallet-options">
+                            <div class="wallet-option" data-wallet="metamask">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" alt="MetaMask">
+                                <span>MetaMask</span>
+                            </div>
+                            <div class="wallet-option" data-wallet="phantom">
+                                <img src="https://phantom.app/static/phantom-icon.png" alt="Phantom">
+                                <span>Phantom</span>
+                            </div>
+                            <div class="wallet-option" data-wallet="trust">
+                                <img src="https://trustwallet.com/assets/images/favicon.png" alt="Trust Wallet">
+                                <span>Trust Wallet</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wallet-actions">
+                            <button class="btn btn-primary" onclick="connectRealWallet()">
+                                <i class="fas fa-plug"></i>
+                                Conectar Wallet Real
+                            </button>
+                            <button class="btn btn-secondary" onclick="connectWallet()">
+                                <i class="fas fa-play"></i>
+                                Simular Conexión
+                            </button>
+                        </div>
+                        
+                        <div class="wallet-tips">
+                            <p><strong>💡 Tip:</strong> Si no tienes wallet, puedes usar la simulación para probar la experiencia.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="step2" class="demo-step-content">
+                        <h3>Selecciona una Artesanía Auténtica</h3>
+                        <p>Elige una pieza única con certificación NFT. Cada artesanía incluye su historia y procedencia verificada.</p>
+                        
+                        <div class="demo-products">
+                            <div class="demo-product" data-product="1">
+                                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=150&h=150&fit=crop" alt="Textil Maya">
+                                <div class="demo-product-info">
+                                    <h4>Textil Maya</h4>
+                                    <p>85 USDC</p>
+                                    <small>Técnica ancestral</small>
+                                </div>
+                            </div>
+                            <div class="demo-product" data-product="2">
+                                <img src="https://images.unsplash.com/photo-1572017932224-6e3a8f7a3b0e?w=150&h=150&fit=crop" alt="Barro Negro">
+                                <div class="demo-product-info">
+                                    <h4>Barro Negro</h4>
+                                    <p>45 USDC</p>
+                                    <small>Artesanía oaxaqueña</small>
+                                </div>
+                            </div>
+                            <div class="demo-product" data-product="3">
+                                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=150&h=150&fit=crop" alt="Collar Plata">
+                                <div class="demo-product-info">
+                                    <h4>Collar Plata</h4>
+                                    <p>120 USDC</p>
+                                    <small>Plata 925 y turquesa</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="selectProduct()" id="selectProductBtn" disabled>
+                            <i class="fas fa-arrow-right"></i>
+                            Continuar a Pago
+                        </button>
+                    </div>
+                    
+                    <div id="step3" class="demo-step-content">
+                        <h3>Confirmar Transacción en Blockchain</h3>
+                        <p>Revisa los detalles y confirma tu compra. La transacción se ejecutará mediante contrato inteligente.</p>
+                        
+                        <div class="transaction-details">
+                            <div class="transaction-item">
+                                <span>Producto:</span>
+                                <span id="txProduct">-</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span>Precio:</span>
+                                <span id="txPrice">-</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span>Comisión de red:</span>
+                                <span id="txFee">-</span>
+                            </div>
+                            <div class="transaction-item total">
+                                <span>Total:</span>
+                                <span id="txTotal">-</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span>Red:</span>
+                                <span class="network-indicator">
+                                    <span class="network-dot"></span>
+                                    Polygon Mainnet
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div id="blockchainLoading" class="loading-states" style="display: none;">
+                            <!-- Se llenará dinámicamente -->
+                        </div>
+                        
+                        <div class="transaction-actions">
+                            <button class="btn btn-secondary" onclick="previousStep()">
+                                <i class="fas fa-arrow-left"></i>
+                                Atrás
+                            </button>
+                            <button class="btn btn-primary" onclick="confirmTransaction()">
+                                <i class="fas fa-file-signature"></i>
+                                Firmar Transacción
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="step4" class="demo-step-content">
+                        <h3>¡Compra Exitosa! 🎉</h3>
+                        <p>Tu transacción ha sido confirmada en la blockchain de Polygon.</p>
+                        
+                        <div class="success-details">
+                            <div class="success-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Pago procesado al artesano</span>
+                            </div>
+                            <div class="success-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>NFT transferido a tu billetera</span>
+                            </div>
+                            <div class="success-item">
+                                <i class="fas fa-receipt"></i>
+                                <span>Transacción verificada en PolygonScan</span>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-receipt">
+                            <h4>Tu Nuevo Certificado NFT</h4>
+                            <div id="nftPreview" class="nft-preview">
+                                <!-- NFT preview will be generated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="success-actions">
+                            <button class="btn btn-primary" onclick="restartDemo()">
+                                <i class="fas fa-redo"></i>
+                                Realizar Otra Compra
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewOnBlockchain()">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver en Blockchain
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Section -->
+    <section id="mercado" class="market">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mercado de Arte Ancestral</h2>
+                <p class="section-subtitle">Descubre piezas únicas con certificación blockchain</p>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="textil">Textiles</button>
+                <button class="filter-btn" data-filter="ceramica">Cerámica</button>
+                <button class="filter-btn" data-filter="joyeria">Joyería</button>
+                <button class="filter-btn" data-filter="madera">Tallado</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="tecnologia" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnología que Empodera</h2>
+                <p class="section-subtitle">Web3 para un comercio transparente y justo</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🔗</div>
+                    <h3>Blockchain</h3>
+                    <p>Registro inmutable de cada transacción y procedencia</p>
+                    <ul class="tech-features">
+                        <li>Transparencia total</li>
+                        <li>Historial verificable</li>
+                        <li>Sin intermediarios</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <h3>NFTs de Autenticidad</h3>
+                    <p>Certificado digital único para cada pieza artesanal</p>
+                    <ul class="tech-features">
+                        <li>Procedencia verificada</li>
+                        <li>Historia del artesano</li>
+                        <li>Valor perpetuo</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🤖</div>
+                    <h3>Contratos Inteligentes</h3>
+                    <p>Pagos automáticos e instantáneos a los artesanos</p>
+                    <ul class="tech-features">
+                        <li>Pago inmediato</li>
+                        <li>Comisiones mínimas</li>
+                        <li>Sin retrasos</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-icon">🌱</div>
+                    <h3>DAO Comunitaria</h3>
+                    <p>Gobernanza descentralizada por y para los artesanos</p>
+                    <ul class="tech-features">
+                        <li>Voto en decisiones</li>
+                        <li>Propiedad colectiva</li>
+                        <li>Desarrollo comunitario</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cómo Comprar en 4 Pasos</h2>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Explora el Mercado</h3>
+                        <p>Descubre artesanías auténticas con certificación NFT</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Conecta tu Wallet</h3>
+                        <p>Usa MetaMask o tu billetera favorita con USDC</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Compra con un Click</h3>
+                        <p>El contrato inteligente procesa tu compra automáticamente</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Recibe tu NFT</h3>
+                        <p>Obtén el certificado de autenticidad en tu billetera</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">🌱</div>
+                        <span class="logo-text">RaízDigital</span>
+                    </div>
+                    <p>Conectando tradición ancestral con tecnología futura para un comercio justo.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="#mercado">Mercado</a></li>
+                        <li><a href="#artesanos">Artesanos</a></li>
+                        <li><a href="#tecnologia">Tecnología</a></li>
+                        <li><a href="#">Documentación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tecnologías</h4>
+                    <ul>
+                        <li>🟣 Polygon</li>
+                        <li>🎨 NFTs ERC-1155</li>
+                        <li>🤖 Smart Contracts</li>
+                        <li>👥 Governance DAO</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Comunidad</h4>
+                    <ul>
+                        <li><a href="#">Foro</a></li>
+                        <li><a href="#">Governance</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Soporte</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Raíz Digital. Construido con 💚 para artesanos indígenas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="script.js"></script>
+</body>
+</html>
+
+
